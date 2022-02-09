@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Staj_ERP_Kalem.Module", "Staj_ERP_Kalem.Module\Staj_ERP_Kalem.Module.csproj", "{4EB28155-238A-4417-91C9-D5DB65F4D82F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Staj_ERP_Kalem.Module.Web", "Staj_ERP_Kalem.Module.Web\Staj_ERP_Kalem.Module.Web.csproj", "{E4F9B7BC-18B4-4E52-AFEB-8FAC6EEE6646}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Staj_ERP_Kalem.Web", "Staj_ERP_Kalem.Web\Staj_ERP_Kalem.Web.csproj", "{377077FF-D696-427A-B691-3DC09D1B6A5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Staj_ERP_Kalem.Module.Win", "Staj_ERP_Kalem.Module.Win\Staj_ERP_Kalem.Module.Win.csproj", "{6A97BAF9-17DD-437C-BF2F-2593A6017BB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Staj_ERP_Kalem.Win", "Staj_ERP_Kalem.Win\Staj_ERP_Kalem.Win.csproj", "{9CA7F9FE-2670-428F-A8CF-F25A1E9B931B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		EasyTest|Any CPU = EasyTest|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4EB28155-238A-4417-91C9-D5DB65F4D82F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EB28155-238A-4417-91C9-D5DB65F4D82F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EB28155-238A-4417-91C9-D5DB65F4D82F}.EasyTest|Any CPU.ActiveCfg = EasyTest|Any CPU
+		{4EB28155-238A-4417-91C9-D5DB65F4D82F}.EasyTest|Any CPU.Build.0 = EasyTest|Any CPU
+		{4EB28155-238A-4417-91C9-D5DB65F4D82F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EB28155-238A-4417-91C9-D5DB65F4D82F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4F9B7BC-18B4-4E52-AFEB-8FAC6EEE6646}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4F9B7BC-18B4-4E52-AFEB-8FAC6EEE6646}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4F9B7BC-18B4-4E52-AFEB-8FAC6EEE6646}.EasyTest|Any CPU.ActiveCfg = EasyTest|Any CPU
+		{E4F9B7BC-18B4-4E52-AFEB-8FAC6EEE6646}.EasyTest|Any CPU.Build.0 = EasyTest|Any CPU
+		{E4F9B7BC-18B4-4E52-AFEB-8FAC6EEE6646}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4F9B7BC-18B4-4E52-AFEB-8FAC6EEE6646}.Release|Any CPU.Build.0 = Release|Any CPU
+		{377077FF-D696-427A-B691-3DC09D1B6A5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{377077FF-D696-427A-B691-3DC09D1B6A5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{377077FF-D696-427A-B691-3DC09D1B6A5C}.EasyTest|Any CPU.ActiveCfg = EasyTest|Any CPU
+		{377077FF-D696-427A-B691-3DC09D1B6A5C}.EasyTest|Any CPU.Build.0 = EasyTest|Any CPU
+		{377077FF-D696-427A-B691-3DC09D1B6A5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{377077FF-D696-427A-B691-3DC09D1B6A5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A97BAF9-17DD-437C-BF2F-2593A6017BB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A97BAF9-17DD-437C-BF2F-2593A6017BB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A97BAF9-17DD-437C-BF2F-2593A6017BB7}.EasyTest|Any CPU.ActiveCfg = EasyTest|Any CPU
+		{6A97BAF9-17DD-437C-BF2F-2593A6017BB7}.EasyTest|Any CPU.Build.0 = EasyTest|Any CPU
+		{6A97BAF9-17DD-437C-BF2F-2593A6017BB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A97BAF9-17DD-437C-BF2F-2593A6017BB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CA7F9FE-2670-428F-A8CF-F25A1E9B931B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CA7F9FE-2670-428F-A8CF-F25A1E9B931B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CA7F9FE-2670-428F-A8CF-F25A1E9B931B}.EasyTest|Any CPU.ActiveCfg = EasyTest|Any CPU
+		{9CA7F9FE-2670-428F-A8CF-F25A1E9B931B}.EasyTest|Any CPU.Build.0 = EasyTest|Any CPU
+		{9CA7F9FE-2670-428F-A8CF-F25A1E9B931B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CA7F9FE-2670-428F-A8CF-F25A1E9B931B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F28EF28F-DB67-45E3-98FC-6178DAF6E415}
+	EndGlobalSection
+EndGlobal

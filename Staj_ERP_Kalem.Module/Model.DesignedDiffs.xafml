@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Title="Staj-ERP-Kalem">
+  <BOModel>
+    <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyUser" Caption="Base User" />
+  </BOModel>
+  <NavigationItems>
+    <Items>
+      <Item Id="Default">
+        <Items>
+          <Item Id="Branch_ListView" Removed="True" />
+          <Item Id="KartBaseObject_ListView" Removed="True" />
+          <Item Id="Product_ListView" Removed="True" />
+          <Item Id="SalesInvoiceItem_ListView" Removed="True" />
+          <Item Id="Storage_ListView" Removed="True" />
+          <Item Id="Unit_ListView" Removed="True" />
+        </Items>
+      </Item>
+      <Item Id="Tanım">
+        <Items>
+          <Item Id="Branch_ListView" ViewId="Branch_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="KartBaseObject_ListView" ViewId="KartBaseObject_ListView" ObjectKey="" Visible="False" IsNewNode="True" />
+          <Item Id="Product_ListView" ViewId="Product_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="SalesInvoiceItem_ListView" ViewId="SalesInvoiceItem_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="Storage_ListView" ViewId="Storage_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="Unit_ListView" ViewId="Unit_ListView" ObjectKey="" Visible="False" IsNewNode="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <Options>
+    <LayoutManagerOptions RequiredFieldMark="*" />
+  </Options>
+  <SchemaModules>
+    <SchemaModule Name="SystemModule" Version="21.2.4.0" IsNewNode="True" />
+  </SchemaModules>
+  <Views>
+    <ListView Id="ApplicationUser_ListView" Caption="Users" />
+    <ListView Id="Branch_ListView" ShowDetailView="False" NewItemRowPosition="Top" />
+    <ListView Id="Branch_LookupListView" ShowDetailView="False" NewItemRowPosition="Top" />
+    <ListView Id="Product_ListView" ShowDetailView="False" NewItemRowPosition="Top" />
+    <ListView Id="Product_LookupListView" ShowDetailView="False" NewItemRowPosition="Top" />
+    <ListView Id="Product_SalesInvoiceItems_ListView" ShowDetailView="False" />
+    <ListView Id="SalesInvoice_SalesInvoicesItems_ListView" ShowDetailView="False" NewItemRowPosition="Top" />
+    <ListView Id="SalesInvoiceItem_ListView" ShowDetailView="True" NewItemRowPosition="Top" />
+    <ListView Id="SalesInvoiceItem_LookupListView" ShowAutoFilterRow="False" NewItemRowPosition="Top" ShowDetailView="False" />
+    <ListView Id="Storage_ListView" ShowDetailView="False" NewItemRowPosition="Top" />
+    <ListView Id="Unit_ListView" ShowDetailView="False" />
+    <ListView Id="Unit_LookupListView" ShowDetailView="False" />
+    <ListView Id="Unit_SalesInvoiceItems_ListView" ShowDetailView="False" />
+    <ListView Id="UnitSet_ListView" ShowDetailView="True" ShowAutoFilterRow="True" AllowEdit="True" />
+    <ListView Id="UnitSet_LookupListView" ShowDetailView="True" />
+    <ListView Id="UnitSet_Units_ListView" NewItemRowPosition="Top" ShowDetailView="False" MasterDetailMode="ListViewOnly" AllowEdit="True" ShowAutoFilterRow="True" />
+  </Views>
+</Application>
