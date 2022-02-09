@@ -1,9 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application Title="Staj-ERP-Kalem">
+  <ActionDesign>
+    <Actions>
+      <Action Id="ChangeVariant" ShortCaption="Görünüm" Caption="Görünüm" />
+    </Actions>
+  </ActionDesign>
   <BOModel>
     <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyUser" Caption="Base User" />
   </BOModel>
-  <NavigationItems>
+  <NavigationItems GenerateRelatedViewVariantsGroup="False">
     <Items>
       <Item Id="Default">
         <Items>
@@ -18,6 +23,7 @@
       <Item Id="Tanım">
         <Items>
           <Item Id="Branch_ListView" ViewId="Branch_ListView" ObjectKey="" IsNewNode="True" />
+          <Item Id="Current_ListView" ViewId="Current_Detail_ListView" />
           <Item Id="KartBaseObject_ListView" ViewId="KartBaseObject_ListView" ObjectKey="" Visible="False" IsNewNode="True" />
           <Item Id="Product_ListView" ViewId="Product_ListView" ObjectKey="" IsNewNode="True" />
           <Item Id="SalesInvoiceItem_ListView" ViewId="SalesInvoiceItem_ListView" ObjectKey="" IsNewNode="True" />
@@ -37,9 +43,26 @@
     <ListView Id="ApplicationUser_ListView" Caption="Users" />
     <ListView Id="Branch_ListView" ShowDetailView="False" NewItemRowPosition="Top" />
     <ListView Id="Branch_LookupListView" ShowDetailView="False" NewItemRowPosition="Top" />
+    <ListView Id="Current_Defult_ListView" ClassName="Staj_ERP_Kalem.Module.BusinessObjects.Current" IsNewNode="True">
+      <Columns IsNewNode="True">
+        <ColumnInfo Id="Oid" PropertyName="Oid" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="Name" PropertyName="Name" Index="0" SortIndex="0" SortOrder="Ascending" IsNewNode="True" />
+        <ColumnInfo Id="Address" PropertyName="Address" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="Code" PropertyName="Code" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="Mail" PropertyName="Mail" Index="3" IsNewNode="True" />
+        <ColumnInfo Id="Comment" PropertyName="Comment" Index="4" IsNewNode="True" />
+        <ColumnInfo Id="TotalCredit" PropertyName="TotalCredit" Index="5" IsNewNode="True" />
+        <ColumnInfo Id="ApprovalPrp" PropertyName="ApprovalPrp" Index="6" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="Current_Detail_ListView" ClassName="Staj_ERP_Kalem.Module.BusinessObjects.Current" IsNewNode="True">
+      <Variants IsNewNode="True">
+        <Variant Id="Default" Caption="Cari" ViewID="Current_ListView" Index="0" IsNewNode="True" />
+        <Variant Id="Calculations" ViewID="Current_Defult_ListView" Caption="Detaylı Cari" IsNewNode="True" />
+      </Variants>
+    </ListView>
     <ListView Id="Product_ListView" ShowDetailView="False" NewItemRowPosition="Top" />
     <ListView Id="Product_LookupListView" ShowDetailView="False" NewItemRowPosition="Top" />
-    <ListView Id="Product_SalesInvoiceItems_ListView" ShowDetailView="False" />
     <ListView Id="SalesInvoice_SalesInvoicesItems_ListView" ShowDetailView="False" NewItemRowPosition="Top" />
     <ListView Id="SalesInvoiceItem_ListView" ShowDetailView="True" NewItemRowPosition="Top" />
     <ListView Id="SalesInvoiceItem_LookupListView" ShowAutoFilterRow="False" NewItemRowPosition="Top" ShowDetailView="False" />

@@ -41,7 +41,7 @@ namespace Staj_ERP_Kalem.Module.BusinessObjects
                 SetPropertyValue(nameof(UnitSet), ref unitSet, value);
             }
         }
-
+        /*
         [Association("Product-SalesInvoiceItems")]
         public XPCollection<SalesInvoiceItem> SalesInvoiceItems
         {
@@ -49,6 +49,6 @@ namespace Staj_ERP_Kalem.Module.BusinessObjects
             {
                 return GetCollection<SalesInvoiceItem>(nameof(SalesInvoiceItems));
             }
-        }
+        }*/
     }
 }

@@ -28,7 +28,6 @@ namespace Staj_ERP_Kalem.Module.BusinessObjects
             base.AfterConstruction();
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
-
         private bool isDefaultPropertyAttributeInit;
         private XPMemberInfo defaultPropertyMemberInfo;
         public override string ToString()
@@ -57,6 +56,7 @@ namespace Staj_ERP_Kalem.Module.BusinessObjects
             set
             {
                 SetPropertyValue(nameof(Code), ref code, value);
+                
             }
         }
         private string name = " ";

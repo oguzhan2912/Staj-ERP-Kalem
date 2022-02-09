@@ -36,8 +36,6 @@ namespace Staj_ERP_Kalem.Module.BusinessObjects
             base.AfterConstruction();
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
-
-        public KartBaseObject KartBaseObject = new KartBaseObject(null);
         
         private SalesInvoice salesInvoice;
         [Association("SalesInvoice-SalesInvoiceItems")] //ONE KISMI
@@ -53,30 +51,22 @@ namespace Staj_ERP_Kalem.Module.BusinessObjects
             get { return unit; }
             set { SetPropertyValue(nameof(Unit), ref unit, value); }
         }
-        private Product product;
-        [Association("Product-SalesInvoiceItems")]
-        public Product Product
+        private KartBaseObject typeKart;
+        [DataSourceCriteria("Iif('@This.TypePrp'=='Malzeme',IsExactType(@This,'Staj_ERP_Kalem.Module.BusinessObjects.Product')," + //Tip malzeme seçilirse Producta ait bilgileri çağıracak değil ise Hesap dökümünü getiricek.
+            "Iif('@This.TypePrp'=='HesapDokumu',IsExactType(@This,'Staj_ERP_Kalem.Module.BusinessObjects.BreakDown'),false))")]       
+        public KartBaseObject TypeKart
         {
             get
             {
-                return product;
+                return typeKart;
             }
             set
             {
-                SetPropertyValue(nameof(Product), ref product, value);
-
+                SetPropertyValue(nameof(TypeKart), ref typeKart, value);
+                
             }
         }
-        
-        private int code;
-        public int Code
-        {
-            get { return code; }
-            set
-            {
-                SetPropertyValue(nameof(Code), ref code, KartBaseObject.Code);
-            }
-        }
+       
         private decimal unitAmount;
         public decimal UnitAmount
         {
@@ -115,7 +105,6 @@ namespace Staj_ERP_Kalem.Module.BusinessObjects
                     foreach (var item in SalesInvoice.SalesInvoicesItems)
                     {
                         SalesInvoice.TotalSum = item.Total;
-
                     }
                 }
             }
@@ -143,11 +132,11 @@ namespace Staj_ERP_Kalem.Module.BusinessObjects
             }
         }
 
-        private type type;
-        public type Type
+        private type typePrp;
+        public type TypePrp
         {
-            get { return type; }
-            set { SetPropertyValue(nameof(Type), ref type, value); }
+            get { return typePrp; }
+            set { SetPropertyValue(nameof(TypePrp), ref typePrp, value); }
         }
 
         [Indexed("BarCode", Unique = true)]

@@ -115,6 +115,7 @@
   <ItemGroup>
     <Compile Include="BusinessObjects\Address.cs" />
     <Compile Include="BusinessObjects\Branch.cs" />
+    <Compile Include="BusinessObjects\BreakDown.cs" />
     <Compile Include="BusinessObjects\Current.cs" />
     <Compile Include="BusinessObjects\KartBaseObject.cs" />
     <Compile Include="BusinessObjects\Product.cs" />
@@ -133,6 +134,12 @@
     <Compile Include="Controllers\DefaultPopupDetail.Designer.cs">
       <DependentUpon>DefaultPopupDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\ProductPopUpFilter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\ProductPopUpFilter.Designer.cs">
+      <DependentUpon>ProductPopUpFilter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\ShowDetailViewFromListViewController.cs" />
     <Compile Include="DatabaseUpdate\Updater.cs" />
     <Compile Include="BusinessObjects\ApplicationUser.cs" />
@@ -148,6 +155,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Controllers\ApprovalState.resx">
       <DependentUpon>ApprovalState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\ProductPopUpFilter.resx">
+      <DependentUpon>ProductPopUpFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Model.DesignedDiffs.xafml" />
     <EmbeddedResource Include="Properties\licenses.licx" />
@@ -166,6 +176,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Welcome.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UnusableNodes.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
