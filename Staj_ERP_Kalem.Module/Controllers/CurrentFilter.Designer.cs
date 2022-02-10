@@ -1,7 +1,7 @@
 ﻿
 namespace Staj_ERP_Kalem.Module.Controllers
 {
-    partial class ProductPopUpFilter
+    partial class CurrentFilter
     {
         /// <summary>
         /// Required designer variable.
@@ -30,29 +30,29 @@ namespace Staj_ERP_Kalem.Module.Controllers
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.proPopFilter = new DevExpress.ExpressApp.Actions.PopupWindowShowAction(this.components);
+            DevExpress.ExpressApp.Actions.SimpleAction FilterAction;
+            FilterAction = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             // 
-            // proPopFilter
+            // FilterAction
             // 
-            this.proPopFilter.AcceptButtonCaption = null;
-            this.proPopFilter.CancelButtonCaption = null;
-            this.proPopFilter.Caption = "Filtre";
-            this.proPopFilter.ConfirmationMessage = null;
-            this.proPopFilter.Id = "PopUpProductFilter";
-            this.proPopFilter.TargetObjectType = typeof(Staj_ERP_Kalem.Module.BusinessObjects.Product);
-            this.proPopFilter.TargetViewType = DevExpress.ExpressApp.ViewType.ListView;
-            this.proPopFilter.ToolTip = null;
-            this.proPopFilter.TypeOfView = typeof(DevExpress.ExpressApp.ListView);
-            this.proPopFilter.Execute += new DevExpress.ExpressApp.Actions.PopupWindowShowActionExecuteEventHandler(this.proPopFilter_Execute);
+            FilterAction.Caption = "Filter";
+            FilterAction.Category = "FullTextSearch";
+            FilterAction.ConfirmationMessage = null;
+            FilterAction.Id = "CurrentFilter";
+            FilterAction.TargetObjectType = typeof(Staj_ERP_Kalem.Module.BusinessObjects.Current);
+            FilterAction.TargetViewType = DevExpress.ExpressApp.ViewType.ListView;
+            FilterAction.ToolTip = null;
+            FilterAction.TypeOfView = typeof(DevExpress.ExpressApp.ListView);
+            FilterAction.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.FilterAction_Execute);
             // 
-            // ProductPopUpFilter
+            // CurrentFilter
             // 
-            this.Actions.Add(this.proPopFilter);
+            this.Actions.Add(FilterAction);
+            this.TargetObjectType = typeof(Staj_ERP_Kalem.Module.BusinessObjects.Current);
+            this.TargetViewType = DevExpress.ExpressApp.ViewType.ListView;
 
         }
 
         #endregion
-
-        private DevExpress.ExpressApp.Actions.PopupWindowShowAction proPopFilter;
     }
 }

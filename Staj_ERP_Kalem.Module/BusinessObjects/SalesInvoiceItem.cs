@@ -62,35 +62,61 @@ namespace Staj_ERP_Kalem.Module.BusinessObjects
             }
             set
             {
-                SetPropertyValue(nameof(TypeKart), ref typeKart, value);
-                
+                SetPropertyValue(nameof(TypeKart), ref typeKart, value);                
             }
         }
        
         private decimal unitAmount;
         public decimal UnitAmount
-        {
+        {            
             get { return unitAmount; }
-            set { SetPropertyValue(nameof(UnitAmount), ref unitAmount, value); }
+            set
+            {
+                if (SetPropertyValue(nameof(UnitAmount), ref unitAmount, value)&&!IsLoading)
+                {
+                    UpdateTotal();
+                    UpdateDiscount();
+                } 
+            }
         }
         private decimal amount;
         public decimal Amount
         {
             get { return amount; }
-            set { SetPropertyValue(nameof(Amount), ref amount, value); }
+            set { 
+                if (SetPropertyValue(nameof(Amount), ref amount, value) && !IsLoading)
+                {
+                    UpdateTotal();
+                    UpdateDiscount();
+                }   
+            }
         }
 
         private decimal unitPrice;
         public decimal UnitPrice
         {
             get { return unitPrice; }
-            set { SetPropertyValue(nameof(UnitPrice), ref unitPrice, value); }
+            set
+            {
+                if (SetPropertyValue(nameof(UnitPrice), ref unitPrice, value)&&!IsLoading)
+                {
+                    UpdateTotal();
+                    UpdateDiscount();
+                }
+            }
         }
         private decimal discount;
         public decimal Discount
         {
             get { return discount; }
-            set { SetPropertyValue(nameof(Discount), ref discount, value); }
+            set
+            {
+                if (SetPropertyValue(nameof(Discount), ref discount, value)&& !IsLoading)
+                {
+                    UpdateTotal();
+                    UpdateDiscount();
+                } 
+            }
         }
 
         private decimal total;
@@ -99,14 +125,11 @@ namespace Staj_ERP_Kalem.Module.BusinessObjects
             get { return total; }
             set
             {
-                bool changed = SetPropertyValue("Total", ref total, (Amount * UnitPrice * UnitAmount) - (Amount * UnitPrice * UnitAmount) * Discount / 100);
-                if (!IsLoading && !IsSaving && changed)
+                if (SetPropertyValue(nameof(Total), ref total, value)&&!IsLoading)
                 {
-                    foreach (var item in SalesInvoice.SalesInvoicesItems)
-                    {
-                        SalesInvoice.TotalSum = item.Total;
-                    }
-                }
+                    UpdateTotalSum();
+                } 
+                
             }
         }
 
@@ -116,19 +139,11 @@ namespace Staj_ERP_Kalem.Module.BusinessObjects
             get { return discountAmount; }
             set
             {
-                if (SetPropertyValue(nameof(DiscountAmount), ref discountAmount, (Amount * UnitPrice * UnitAmount) * Discount / 100))
+                if (SetPropertyValue(nameof(DiscountAmount), ref discountAmount, value)&&!IsLoading)
                 {
-                    if (!IsLoading && !IsSaving)
-                    {
-                        decimal temp = 0;
-                        foreach (var item in SalesInvoice.SalesInvoicesItems)
-                        {
-                            temp += item.DiscountAmount;
-                        }
-                        SalesInvoice.TotalDiscount = temp;
-                    }
+                    UpdateTotalDiscount();
                 }
-
+               
             }
         }
 
@@ -147,6 +162,39 @@ namespace Staj_ERP_Kalem.Module.BusinessObjects
         {
             get { return barCode; }
             set { SetPropertyValue(nameof(BarCode), ref barCode, value); }
+        }
+        private void UpdateTotal()
+        {
+            Total= (Amount * UnitPrice * UnitAmount) - (Amount * UnitPrice * UnitAmount) * Discount / 100;
+        }
+        private void UpdateDiscount()
+        {
+            DiscountAmount = (Amount * UnitPrice * UnitAmount) * Discount / 100;
+        }
+        private void UpdateTotalSum()
+        {
+            
+            if (!IsLoading)
+            {
+                decimal temp=0;
+                foreach (var item in SalesInvoice.SalesInvoicesItems)
+                {
+                    temp += item.Total;
+                    SalesInvoice.TotalSum = temp;
+                }               
+            }            
+        }
+        private void UpdateTotalDiscount()
+        {
+            if (!IsLoading)
+            {
+                decimal temp =0;
+                foreach (var item in SalesInvoice.SalesInvoicesItems)
+                {
+                    temp += item.DiscountAmount;
+                    SalesInvoice.TotalDiscount = temp;
+                }
+            }
         }
     }
 }

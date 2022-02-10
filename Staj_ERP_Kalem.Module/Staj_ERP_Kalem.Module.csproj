@@ -89,6 +89,7 @@
     <Reference Include="DevExpress.Xpo.v21.2">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="DevExpress.XtraEditors.v21.2, Version=21.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="mscorlib">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
@@ -108,6 +109,7 @@
       <Name>System.Data</Name>
     </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
@@ -130,15 +132,15 @@
     <Compile Include="Controllers\ApprovalState.Designer.cs">
       <DependentUpon>ApprovalState.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\CurrentFilter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\CurrentFilter.Designer.cs">
+      <DependentUpon>CurrentFilter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\DefaultPopupDetail.cs" />
     <Compile Include="Controllers\DefaultPopupDetail.Designer.cs">
       <DependentUpon>DefaultPopupDetail.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\ProductPopUpFilter.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controllers\ProductPopUpFilter.Designer.cs">
-      <DependentUpon>ProductPopUpFilter.cs</DependentUpon>
     </Compile>
     <Compile Include="Controllers\ShowDetailViewFromListViewController.cs" />
     <Compile Include="DatabaseUpdate\Updater.cs" />
@@ -156,8 +158,8 @@
     <EmbeddedResource Include="Controllers\ApprovalState.resx">
       <DependentUpon>ApprovalState.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controllers\ProductPopUpFilter.resx">
-      <DependentUpon>ProductPopUpFilter.cs</DependentUpon>
+    <EmbeddedResource Include="Controllers\CurrentFilter.resx">
+      <DependentUpon>CurrentFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Model.DesignedDiffs.xafml" />
     <EmbeddedResource Include="Properties\licenses.licx" />

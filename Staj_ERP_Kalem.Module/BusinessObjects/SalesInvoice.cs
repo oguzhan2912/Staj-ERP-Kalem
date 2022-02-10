@@ -92,16 +92,10 @@ namespace Staj_ERP_Kalem.Module.BusinessObjects
             get { return totalSum; }
             set
             {
-                if (SetPropertyValue(nameof(TotalSum), ref totalSum, value))
+                if (SetPropertyValue(nameof(TotalSum), ref totalSum, value)&&!IsLoading)
                 {
-                    if (!IsSaving && !IsLoading)
-                    {
-                        foreach (var item in Current.SalesInvoices)
-                        {
-                            Current.TotalCredit += item.TotalSum;
-                        }
-                    }
-                }
+                    UpdateTotalCredit();
+                } 
             }
         }
         private decimal totalDiscount;
@@ -121,6 +115,18 @@ namespace Staj_ERP_Kalem.Module.BusinessObjects
         {
             get { return documentNumber; }
             set { SetPropertyValue(nameof(DocumentNumber), ref documentNumber, value); }
+        }
+        private void UpdateTotalCredit()
+        {
+            if (!IsLoading)
+            {
+                decimal temp = 0;
+                foreach (var item in Current.SalesInvoices)
+                {
+                    temp += item.totalSum;
+                    Current.TotalCredit = temp;
+                }
+            }
         }
     }
 }

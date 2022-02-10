@@ -3,12 +3,14 @@ using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Actions;
 using DevExpress.ExpressApp.Editors;
 using DevExpress.ExpressApp.Layout;
+using DevExpress.ExpressApp.Model;
 using DevExpress.ExpressApp.Model.NodeGenerators;
 using DevExpress.ExpressApp.SystemModule;
 using DevExpress.ExpressApp.Templates;
 using DevExpress.ExpressApp.Utils;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.Validation;
+using Staj_ERP_Kalem.Module.BusinessObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,34 +19,20 @@ using System.Text;
 namespace Staj_ERP_Kalem.Module.Controllers
 {
     // For more typical usage scenarios, be sure to check out https://documentation.devexpress.com/eXpressAppFramework/clsDevExpressExpressAppViewControllertopic.aspx.
-    public partial class ProductPopUpFilter : ViewController
+    public partial class CurrentFilter : ViewController
     {
         // Use CodeRush to create Controllers and Actions with a few keystrokes.
         // https://docs.devexpress.com/CodeRushForRoslyn/403133/
-        public ProductPopUpFilter()
+        public CurrentFilter()
         {
             InitializeComponent();
-            PopupWindowShowAction popupWindowShowAction = new PopupWindowShowAction(this, "Yeni Sekmede Aç", PredefinedCategory.Edit);
-            popupWindowShowAction.SelectionDependencyType = SelectionDependencyType.RequireSingleObject;
-            popupWindowShowAction.TargetObjectsCriteria = "Not IsNewObject(This)";
-            popupWindowShowAction.CustomizePopupWindowParams += popupWindowShowAction_CustomizePopupWindowParams;
+           
         }
-        void popupWindowShowAction_CustomizePopupWindowParams(object sender, CustomizePopupWindowParamsEventArgs e)
-        {
-
-            IObjectSpace newObjectSpace = Application.CreateObjectSpace(View.ObjectTypeInfo.Type);
-            Object objectToShow = newObjectSpace.GetObject(View.CurrentObject);
-            if (objectToShow != null)
-            {
-                DetailView createdView = Application.CreateDetailView(newObjectSpace, objectToShow);
-                createdView.ViewEditMode = ViewEditMode.Edit;
-                e.View = createdView;
-            }
-        }
+       
         protected override void OnActivated()
         {
             base.OnActivated();
-            // Perform various tasks depending on the target View.
+            
         }
         protected override void OnViewControlsCreated()
         {
@@ -56,10 +44,25 @@ namespace Staj_ERP_Kalem.Module.Controllers
             // Unsubscribe from previously subscribed events and release other references and resources.
             base.OnDeactivated();
         }
-        DetailView dv = null;
-        private void proPopFilter_Execute(object sender, PopupWindowShowActionExecuteEventArgs e)
+       
+        private void FilterAction_Execute(object sender, SimpleActionExecuteEventArgs e)
+        {
+             
+            IObjectSpace objectSpace = Application.CreateObjectSpace(typeof(Current));
+            string detailViewId = Application.FindDetailViewId(typeof(Current));
+            e.ShowViewParameters.CreatedView = Application.CreateDetailView(objectSpace, "Current_Filter_DetailView", true);
+            e.ShowViewParameters.TargetWindow = TargetWindow.NewModalWindow;
+            e.ShowViewParameters.Context = TemplateContext.PopupWindow;
+            e.ShowViewParameters.Controllers.Add(Application.CreateController<DialogController>());
+            DialogController dialogController = new DialogController();
+            //dialogController.AcceptAction.ActionMeaning = AcceptAction_Execute(sender,e);
+
+
+        }
+        private void AcceptAction_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
 
         }
     }
 }
+
